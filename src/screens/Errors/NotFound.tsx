@@ -30,6 +30,7 @@ const NotFound : React.FC = () =>{
                     onClick={() => navigate(Learner.DASHBOARD)}
                 >
                 Go to home page
+                
                 </Button>
             </div>
             </Flex>
