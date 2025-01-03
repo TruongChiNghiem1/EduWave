@@ -1,12 +1,20 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import './sass/app.scss'
+import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Learner from "./routers/Paths/Learner";
-import Login from "./screens/Auth/Login";
-import NotFound from "./screens/Errors/NotFound";
+import LearnerLayout from "./layouts/LearnerLayout.tsx";
+import LearnerRoutes from "./routers/Routes/Learner.tsx";
 const App: React.FC = () => {
     const router = createBrowserRouter([
-         { path: Learner.LOGIN, element: <Login/> },
-          { path: '*', element: <NotFound/> },
+        {
+            path:'/',
+            element: <Navigate to={Learner.DASHBOARD}/>
+        },
+        {
+            element: (<LearnerLayout/>),
+            children: LearnerRoutes
+        },
+
     ]);
 
     return <RouterProvider router={router} />;
